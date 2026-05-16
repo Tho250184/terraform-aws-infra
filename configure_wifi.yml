@@ -1,0 +1,13 @@
+- name: Automation Config For Ubiquiti AP
+  hosts: wireless_controllers
+  gather_facts: false
+  tasks:
+    - name: Tu dong tao SSID mang WiFi cho Cong ty
+      community.ubiquiti.unifi_wlan:
+        id: "Company_Staff_WiFi"
+        name: "Enterprise-Staff"
+        security: "wpapsk"
+        passphrase: "SecurePassword2026" # Mật khẩu WiFi tự động sinh ra
+        vlan_enabled: true
+        vlan: 10
+        state: present
